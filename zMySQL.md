@@ -5,6 +5,7 @@
         - caso seja um servidor local, usar localhost no NOME-DO-SERVIDOR
 > Conectando no banco como root
     - mysql -u root -p
+      - digite o password do mysql
     - se acaso nao funcionar
         - sudo nano /etc/paths (comando no terminal)
         - adicione na ultima linha

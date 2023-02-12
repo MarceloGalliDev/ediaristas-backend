@@ -25,6 +25,12 @@
 > django-admin startproject {nome}
 > cd {nome}
 > python manage.py startapp {nome da app}
+> pip install pymysql
+  - incluir no arquivo settings.py
+    - import pymysql
+    - pymysql.install_as_MySQLdb()
+> pip install python-decouple
+  - para manusear variáveis de ambiente
 
 ## 4 - Conectando banco de dados
 > mysql -u root -p
