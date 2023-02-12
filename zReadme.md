@@ -31,6 +31,10 @@
     - pymysql.install_as_MySQLdb()
 > pip install python-decouple
   - para manusear variáveis de ambiente
+> pip install unipath 
+  - para gerenciar o path
+> pip install cryptography
+  - para adicionar a criptografia
 
 ## 4 - Conectando banco de dados
 > mysql -u root -p
@@ -41,3 +45,8 @@
 > incluir dados no arquivo settings.py
   - incluir no campo DATABASES, dados do host porta e etc
   - incluir a aplicação noi campo de INSTALLED_APPS, na primeira posição
+> python manage.py migrate
+  - depois de tudo realizado, vamos incluir o migrate, para versionar nossos documentos
+
+## 5 - Template admin
+> pip install admin-lte
