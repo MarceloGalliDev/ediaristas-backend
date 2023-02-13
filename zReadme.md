@@ -48,5 +48,11 @@
 > python manage.py migrate
   - depois de tudo realizado, vamos incluir o migrate, para versionar nossos documentos
 
+## 5 - Variáveis de ambiente
+> pip install dotenv
+  - from dotenv import load_dotenv 
+  - criamos o arquivo .env, com as ambientação
+  - import os
+
 ## 5 - Template admin
-> pip install admin-lte
+> pip install django-adminlte-3

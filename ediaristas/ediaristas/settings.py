@@ -1,11 +1,11 @@
-from decouple import config
-from unipath import Path
-from dj_database_url import parse as db_url
+import os
+from dotenv import load_dotenv
 from pathlib import Path
 import pymysql
 
 # Import pymysql, que não possui mais no pacote venv nem Django
 pymysql.install_as_MySQLdb()
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -14,8 +14,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
-SECRET_KEY = config('SECRET_KEY')
-DEBUG = config('DEBUG', default=False, cast=bool)
+SECRET_KEY = os.getenv('SECRET_KEY')
+DEBUG = os.getenv('DEBUG')
 
 ALLOWED_HOSTS = []
 
@@ -62,12 +62,12 @@ WSGI_APPLICATION = 'ediaristas.wsgi.application'
 
 DATABASES = {
   'default': {
-    'ENGINE': config('DATABASE_URL', default='django.db.backends.sqlite3'),
-    'NAME': config('NAME', default='api'),
-    'HOST': config('HOST', default='localhost'),
-    'PORT': config('PORT', default=3306, cast=int),
-    'USERNAME': config('USERNAME', default='root'),
-    'PASSWORD': config("PASSWORD", default='root')
+    'ENGINE': os.getenv('DATABASE_URL'),
+    'NAME': os.getenv('NAME'),
+    'HOST': os.getenv('HOST'),
+    'PORT': os.getenv('PORT'),
+    'USER': os.getenv('USERNAME'),
+    'PASSWORD': os.getenv('PASSWORD')
   }
 }
 
