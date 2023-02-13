@@ -56,3 +56,6 @@
 
 ## 5 - Template admin
 > pip install django-adminlte-3
+  - incluir no settings.py o módulo de adminlte
+  - criar pasta templates e o arquivo url
+    - quando chamar-mos a rota administracao/exemplo, vamos executar o método exemplo dentro de .views que vai renderizar para nós o exemplo.html
