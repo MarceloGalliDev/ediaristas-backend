@@ -59,12 +59,13 @@
   - incluir no settings.py o módulo de adminlte
   - criar pasta templates e o arquivo url
     - quando chamar-mos a rota administracao/exemplo, vamos executar o método exemplo dentro de .views que vai renderizar para nós o exemplo.html
+  - AdminLTE possui bootstrap
   
 ## 7 - Criando models
   - Models definem a estrutura dos dados armazenados
-  - Importante definir o tipo de dado que será armazenado
+  - importante definir o tipo de dado que será armazenado
   - Models são objetos python
-  - Após criar todos os campos destinados a nossa api
+  - após criar todos os campos destinados a nossa api
   > python manage.py makemigrations
     - realizar a makemigrations
   > python manage.py migrate
@@ -79,3 +80,9 @@
     - vai executar a função cadastrar_servico > 
       - vai criar uma instancia vazia do nosso formulário >
         - vai enviar essa instancia para nosso template form_servico.html
+  - Incluir no template a tag form com method POST, pois vamos cadastrar algo no banco de dados
+
+## 9 - Captando os dados para verificação
+  - vamos captar os dados la do views.py, pela requisição, quando clicamos no botão cadastrar que tem o type submite, ele vai enviar a requisição no formato POST
+  - usamos o is_valid() para validar as caracteristicas dadas no arquivo models.py
+  

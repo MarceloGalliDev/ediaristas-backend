@@ -9,8 +9,11 @@
 </head>
 <body>
   {% block content %}
-  <form method="POST"></form>
-  {{form_servico.as_p}}
+  <form method="POST">
+    {%csrf_token%}
+    {{form_servico.as_p}}
+    <button class="btn btn-primary" type="submit">Cadastrar</button>
+  </form>
   {% endblock content %}
 </body>
 </html>
