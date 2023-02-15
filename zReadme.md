@@ -54,8 +54,28 @@
   - criamos o arquivo .env, com as ambientação
   - import os
 
-## 5 - Template admin
+## 6 - Template admin
 > pip install django-adminlte-3
   - incluir no settings.py o módulo de adminlte
   - criar pasta templates e o arquivo url
     - quando chamar-mos a rota administracao/exemplo, vamos executar o método exemplo dentro de .views que vai renderizar para nós o exemplo.html
+  
+## 7 - Criando models
+  - Models definem a estrutura dos dados armazenados
+  - Importante definir o tipo de dado que será armazenado
+  - Models são objetos python
+  - Após criar todos os campos destinados a nossa api
+  > python manage.py makemigrations
+    - realizar a makemigrations
+  > python manage.py migrate
+    - para incluir na migrate
+
+## 8 - Criando o CRUD
+  - Criamos o arquivo forms.py
+  - Criamos uma classe Meta, inicializando nosso módulo de Serviço la do models.py
+  - Criamos uma rota
+  - Inicializamos ela na url
+  - Quando a rota servicos/cadastrar for chamada > 
+    - vai executar a função cadastrar_servico > 
+      - vai criar uma instancia vazia do nosso formulário >
+        - vai enviar essa instancia para nosso template form_servico.html
