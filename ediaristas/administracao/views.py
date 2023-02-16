@@ -20,5 +20,8 @@ def listar_servicos(request):
 def editar_servico(request, id): # Aqui vamos receber a request e o id que queremos editar
   servico = Servico.objects.get(id=id) # Selecionamos o id do form
   form_servico = ServicoForm(request.POST or None, instance=servico)# Aqui estamos fazendo a inclusão da edição, e se caso for somente abertura, adicionamos um None, e a parte do instance é para instanciarmos nosso formulário com os dados já preenchido
+  if form_servico.is_valid():
+    form_servico.save()
+    return redirect('listar_servicos')
   return render(request, 'servicos/form_servico.html', {'form_servico': form_servico})# form_servico: form_servico é usado o mesmo nome do formulário para renderizar os input
   
