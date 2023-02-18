@@ -24,7 +24,8 @@ INSTALLED_APPS = [
   'django.contrib.messages',
   'django.contrib.staticfiles',
   'adminlte3',
-  'adminlte3_theme'
+  'adminlte3_theme',
+  'bootstrap4',
 ]
 
 MIDDLEWARE = [
