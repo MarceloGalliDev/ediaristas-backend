@@ -92,3 +92,5 @@
 
 ## 11 - Utilizando bootstrap
   - pip install django-bootstrap4
+  - adicionar no settings.py
+  - substituir {{form_servico.as_p}} por {% bootstrap_form form_servico %}
