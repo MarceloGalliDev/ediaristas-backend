@@ -85,4 +85,7 @@
 ## 9 - Captando os dados para verificação
   - vamos captar os dados la do views.py, pela requisição, quando clicamos no botão cadastrar que tem o type submite, ele vai enviar a requisição no formato POST
   - usamos o is_valid() para validar as caracteristicas dadas no arquivo models.py
+
+## 10 - Editando templates 
+  - Necessário que seja no mesmo formato, nome de pasta em path
   
