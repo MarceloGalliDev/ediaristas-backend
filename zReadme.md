@@ -88,4 +88,7 @@
 
 ## 10 - Editando templates 
   - Necessário que seja no mesmo formato, nome de pasta em path
-  
+  - O Django é tido em blocos onde temos a abertura do block e o fechamendo sendo endblock
+
+## 11 - Utilizando bootstrap
+  - pip install bootstrap-4
