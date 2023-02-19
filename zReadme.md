@@ -94,3 +94,7 @@
   - pip install django-bootstrap4
   - adicionar no settings.py
   - substituir {{form_servico.as_p}} por {% bootstrap_form form_servico %}
+
+## 12 - Aplicando mascára
+  - vamos aplicar mascára para formatação automática de valores monetários
+  
