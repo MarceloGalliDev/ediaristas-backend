@@ -17,5 +17,17 @@
 
     {% endblock content %}
   </main>
+
+  {% block javascript %}
+    {{block.super}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.7/jquery.inputmask.min.js" integrity="sha512-jTgBq4+dMYh73dquskmUFEgMY5mptcbqSw2rmhOZZSJjZbD2wMt0H5nhqWtleVkyBEjmzid5nyERPSNBafG4GQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+      $(documento).ready(function() {
+        $('.money').mask('000,00', {reverse: true})
+      })
+    </script>
+  {% endblock javascript %}
+
 </body>
 </html>

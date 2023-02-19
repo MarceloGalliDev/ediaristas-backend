@@ -97,4 +97,6 @@
 
 ## 12 - Aplicando mascára
   - vamos aplicar mascára para formatação automática de valores monetários
-  
+  - https://cdnjs.com/libraries/jquery.inputmask
+  - vamos incluir no nosso templates base.html o script de mask
+  - é necessário que seja inicializado a function
