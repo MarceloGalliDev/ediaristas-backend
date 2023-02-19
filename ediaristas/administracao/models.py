@@ -9,7 +9,7 @@ class Servico(models.Model):
   nome = models.CharField(max_length=50, null=False, blank=False)
   valor_minimo = models.DecimalField(null=False, blank=False, decimal_places=2, max_digits=5)
   qtd_horas = models.IntegerField(null=False, blank=False)
-  porcentagem_comissao = models.DecimalField(null=False, blank=False, decimal_places=2, max_digits=5)
+  porcentagem_comissao = models.DecimalField(null=False, blank=False, decimal_places=2, max_digits=4)
   horas_quarto = models.IntegerField(null=False, blank=False)
   valor_quarto = models.DecimalField(null=False, blank=False, decimal_places=2, max_digits=5)
   horas_sala = models.IntegerField(null=False, blank=False)

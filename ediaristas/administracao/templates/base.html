@@ -26,7 +26,13 @@
     <script>
       $(document).ready(function() {
         $('.money').mask('000,00', {reverse: true})
-      })
+      });
+    </script>
+
+    <script>
+      $(document).ready(function() {
+        $('.percent').mask('00,00', {reverse: true, placeholder: '%'})
+      });
     </script>
   {% endblock javascript %}
 
