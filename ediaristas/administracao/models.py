@@ -1,4 +1,7 @@
 from django.db import models
+from django import forms
+from django.forms import widgets
+from decimal import Decimal
 
 class Servico(models.Model):
   ICONE_CHOICES = (
@@ -24,5 +27,6 @@ class Servico(models.Model):
   valor_outros = models.DecimalField(null=False, blank=False, decimal_places=2, max_digits=5)
   icone = models.CharField(null=False, blank=False, choices=ICONE_CHOICES, max_length=14)
   posicao = models.IntegerField(null=False)
+  
   
 #ICONE_CHOICES serve para definir valores padroes para um determinado campo

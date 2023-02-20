@@ -18,35 +18,35 @@ class ServicoForm(forms.ModelForm):
   
   def clean_valor_minimo(self):
     data = self.cleaned_data['valor_minimo']
-    return Decimal(data.replace(',', '.'))
+    return Decimal(data.replace(',', '.').replace('R$',''))
 
   def clean_porcentagem_comissao(self):
     data = self.cleaned_data['porcentagem_comissao']
-    return Decimal(data.replace(',', '.'))
+    return Decimal(data.replace(',', '.').replace('%', ' '))
     
   def clean_valor_quarto(self):
     data = self.cleaned_data['valor_quarto']
-    return Decimal(data.replace(',', '.'))
+    return Decimal(data.replace(',', '.').replace('R$',''))
     
   def clean_valor_sala(self):
     data = self.cleaned_data['valor_sala']
-    return Decimal(data.replace(',', '.'))
+    return Decimal(data.replace(',', '.').replace('R$',''))
     
   def clean_valor_banheiro(self):
     data = self.cleaned_data['valor_banheiro']
-    return Decimal(data.replace(',', '.'))
+    return Decimal(data.replace(',', '.').replace('R$',''))
     
   def clean_valor_cozinha(self):
     data = self.cleaned_data['valor_cozinha']
-    return Decimal(data.replace(',', '.'))
+    return Decimal(data.replace(',', '.').replace('R$',''))
     
   def clean_valor_quintal(self):
     data = self.cleaned_data['valor_quintal']
-    return Decimal(data.replace(',', '.'))
+    return Decimal(data.replace(',', '.').replace('R$',''))
     
   def clean_valor_outros(self):
     data = self.cleaned_data['valor_outros']
-    return Decimal(data.replace(',', '.'))
+    return Decimal(data.replace(',', '.').replace('R$',''))
     
     
 # Estamos iniciando uma classe meta, colocando nosso Servico lá de models.py e inicianlizando todos os nossos fields ('__all__') da nossa função.
