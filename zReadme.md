@@ -103,5 +103,6 @@
   - é necessário que seja inicializado a function()
   - fazer o replace do '.' por ','
 
-## 13 - Criando o modelo de acesso
-  
+## 13 - Criando o modelo de login
+ - estamos criando o local de criar usuário para posteriormente fazer a autenticação
+ 
