@@ -1,7 +1,7 @@
 # Arquivo para renderizar nossos dados
 from django.shortcuts import render, redirect
-from .forms import ServicoForm
-from .models import Servico
+from ..forms.servico_forms import ServicoForm
+from ..models import Servico
 
 def cadastrar_servico(request):
   if request.method == "POST":
