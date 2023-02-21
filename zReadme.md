@@ -105,4 +105,5 @@
 
 ## 13 - Criando o modelo de login
  - estamos criando o local de criar usuário para posteriormente fazer a autenticação
- 
+ - utilizamos bootstrap
+ - refazemos os inputs de password para colocar lado a lado
