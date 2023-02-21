@@ -1,4 +1,3 @@
-# Arquivo para renderizar nossos dados
 from django.shortcuts import render, redirect
 from ..forms.servico_forms import ServicoForm
 from ..models import Servico

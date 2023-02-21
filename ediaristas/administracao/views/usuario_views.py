@@ -1,5 +1,5 @@
-from ..forms.usuario_forms import UsuarioForm
 from django.shortcuts import render, redirect
+from ..forms.usuario_forms import UsuarioForm
 from django.contrib.auth import get_user_model
 
 def cadastrar_usuario(request):
