@@ -1,9 +1,10 @@
 {% extends 'base.html' %}
+{% load bootstrap4 %}
 
 {% block content %}
 <form method="POST">
   {% csrf_token %}
-  {{form_usuario.as_p}}
+  {% bootstrap_form form_usuario %}
   <input type="submit" class="btn btn-primary" value="Salvar">
 </form>
 {% endblock content %}
