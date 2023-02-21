@@ -2,9 +2,16 @@
 {% load bootstrap4 %}
 
 {% block content %}
-<form method="POST">
-  {% csrf_token %}
-  {% bootstrap_form form_usuario %}
-  <input type="submit" class="btn btn-primary" value="Salvar">
-</form>
+  <div class="card card-primary">
+    <div class="card-header">
+      Cadastro de usuário
+    </div>
+    <div class="card-body">
+      <form method="POST">
+        {%csrf_token%}
+        {% bootstrap_form form_usuario %}
+        <button class="btn btn-primary" type="submit">Salvar</button>
+      </form>
+    </div>
+  </div>
 {% endblock content %}
