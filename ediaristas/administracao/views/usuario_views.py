@@ -23,7 +23,7 @@ def editar_usuario(request, id):
   form_usuario = EditarUsuarioForm(request.POST or None, instance=usuario)
   if form_usuario.is_valid():
     form_usuario.save()
-    return redirect('listar_usuario') 
+    return redirect('listar_usuarios') 
   return render(request, 'usuarios/editar_usuario.html', {'form_usuario': form_usuario})  
   
   
