@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from ..forms.usuario_forms import CadastroUsuarioForm
+from ..forms.usuario_forms import CadastroUsuarioForm, EditarUsuarioForm
 from django.contrib.auth import get_user_model
 
 def cadastrar_usuario(request):
@@ -17,6 +17,17 @@ def listar_usuarios(request):
   usuarios = User.objects.filter(is_superuser=True)
   return render(request, 'usuarios/lista_usuarios.html', {'usuarios': usuarios})
 
+def editar_usuarios(request, id):
+  User = get_user_model()
+  usuario = User.objects.get(id=id)
+  form_usuario = EditarUsuarioForm(request.POST or None, instance=usuario)
+  if form_usuario.is_valid():
+    form_usuario.save()
+    return redirect('listar_usuario') 
+  return render(request, 'usuarios/form_usuarios.html', {'form_usuario': form_usuario})  
+  
+  
+  
 # Analisa-se dentro da lib a função base UserCreationForm
 # Estamos utilizando get_user_model para identificar o tipo de autenticação da api para fazer a validção, assim evitando a quebra da API administrativa em caso de alteração do tipo de authenticação
 # User = get_user_model(), aqui estsamos pegando o modo de authenticação do sistema
