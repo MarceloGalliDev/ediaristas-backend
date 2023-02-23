@@ -9,6 +9,6 @@ urlpatterns = [
     path('usuarios/cadastrar', usuario_views.cadastrar_usuario, name='cadastrar_usuario'),
     path('usuarios/listar', usuario_views.listar_usuarios, name='listar_usuarios'),
     path('usuarios/editar/<int:id>', usuario_views.editar_usuario, name='editar_usuario'),
-    path('autenticacao/login', auth_views.LoginView.as_view(), name='logar_usuario')
-    path('autenticacao/logout', auth_views.LogoutView.as_view(), name='deslogar_usuario')
+    path('autenticacao/login', auth_views.LoginView.as_view(), name='logar_usuario'),
+    path('autenticacao/logout', auth_views.LogoutView.as_view(), name='deslogar_usuario'),
 ];
