@@ -107,3 +107,9 @@
  - estamos criando o local de criar usuário para posteriormente fazer a autenticação
  - utilizamos bootstrap
  - refazemos os inputs de password para colocar lado a lado
+ - criamos a rota alterar senha
+ - criamos o icone de alterar senha
+
+## 14 - Criando icones de header
+ - Usamos o super para indicar que queremos o child do block
+ 
