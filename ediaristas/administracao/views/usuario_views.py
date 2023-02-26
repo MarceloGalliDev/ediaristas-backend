@@ -8,7 +8,7 @@ def cadastrar_usuario(request):
     form_usuario = CadastroUsuarioForm(request.POST)
     if form_usuario.is_valid():
       form_usuario.save()
-      messages.success(request, "Usuário criado com sucesso")
+      messages.info(request, 'Usuário criado com sucesso!')
       return redirect('listar_usuarios')
   else:
     form_usuario = CadastroUsuarioForm()
@@ -25,6 +25,7 @@ def editar_usuario(request, id):
   form_usuario = EditarUsuarioForm(request.POST or None, instance=usuario)
   if form_usuario.is_valid():
     form_usuario.save()
+    messages.info(request, 'Usuário alterado com sucesso!')
     return redirect('listar_usuarios') 
   return render(request, 'usuarios/editar_usuario.html', {'form_usuario': form_usuario})  
   
