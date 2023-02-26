@@ -1,12 +1,14 @@
 from django.shortcuts import render, redirect
 from ..forms.usuario_forms import CadastroUsuarioForm, EditarUsuarioForm
 from django.contrib.auth import get_user_model
+from django.contrib import messages 
 
 def cadastrar_usuario(request):
   if request.method == 'POST':
     form_usuario = CadastroUsuarioForm(request.POST)
     if form_usuario.is_valid():
       form_usuario.save()
+      messages.success(request, "Usuário criado com sucesso")
       return redirect('listar_usuarios')
   else:
     form_usuario = CadastroUsuarioForm()
