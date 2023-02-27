@@ -5,3 +5,10 @@
 
 ## Evitando sobscrever blocks
   - Para evitar a sobscrição de blocos utilizamos  {{ block.super }}
+
+## Comandos DJANGO
+ - python manage.py runserver - rodar aplicação
+ - python mananage.py makemigrations - gerando estruturas
+ - python manage.py migrate - executando migrações
+ - python manage.py flush - limpar banco de dados
+ - python manage.py inspectdb > nome_da_app.models.py - mapeando outro banco de dados existente

@@ -8,6 +8,7 @@ def cadastrar_usuario(request):
     form_usuario = CadastroUsuarioForm(request.POST)
     if form_usuario.is_valid():
       form_usuario.save()
+      messages.success(request, 'Usuário cadastrado com sucesso!')
       return redirect('listar_usuarios')
   else:
     form_usuario = CadastroUsuarioForm()
@@ -27,7 +28,6 @@ def editar_usuario(request, id):
     messages.success(request, 'Usuário alterado com sucesso!')
     return redirect('listar_usuarios') 
   return render(request, 'usuarios/editar_usuario.html', {'form_usuario': form_usuario})  
-  
   
   
 # Analisa-se dentro da lib a função base UserCreationForm
