@@ -1,16 +1,15 @@
 {% extends 'base.html' %}
-{% load bootstrap4 %}
 
 {% block title %}
   Listagem de usuários
 {% endblock title %}
 
 {% block content %}
-  <div card="card card-primary">
-    <div card="card-header">
-      Lista de usuários 
+  <div class="card card-primary">
+    <div class="card-header">
+      <h3 class="card-title">Lista de usuários</h3>
     </div>
-    <div class="card-body p-0">
+    <div class="card-body p-0 ">
       <table class="table table-condensed">
         <thead>
           <tr>
@@ -31,5 +30,5 @@
       </table>
     </div>
   </div>
-  <a href="{% url 'cadastrar_usuario'%}" class="btn btn-primary">Cadastrar</a>
+  <a href="{% url 'cadastrar_usuario'%}" class="btn btn-primary mb-2">Cadastrar</a>
 {% endblock content %}

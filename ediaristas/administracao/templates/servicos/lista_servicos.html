@@ -5,8 +5,8 @@
 {% endblock title %}
 
 {% block content %}
-  <div card="">
-    <div card="card-header">
+  <div class="card card-primary">
+    <div class="card-header">
       <h3 class="card-title">Lista de serviços</h3>
     </div>
     <div class="card-body p-0">
@@ -32,5 +32,5 @@
       </table>
     </div>
   </div>
-  <a href="{% url 'cadastrar_servico'%}" class="btn btn-primary">Cadastrar</a>
+  <a href="{% url 'cadastrar_servico'%}" class="btn btn-primary mb-2">Cadastrar</a>
 {% endblock content %}
