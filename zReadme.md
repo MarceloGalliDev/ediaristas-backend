@@ -112,4 +112,5 @@
 
 ## 14 - Criando icones de header
  - Usamos o super para indicar que queremos o child do block
- 
+
+## 15 - Criando o template reset_password
