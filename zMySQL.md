@@ -1,4 +1,4 @@
-# Comandos MySQL
+## MySQL
 ## Conexão MySQL
 > Conectando no banco
     - mysql -h NOME-DO-SERVIDOR -u NOME-DO-USUARIO
