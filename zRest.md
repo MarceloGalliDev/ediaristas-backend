@@ -1,5 +1,8 @@
 ## Rest e RESTfull
 
+# 1 - HateOs
+  - necessário possuir uma URI indicando o caminho do recurso solicitado
+
 > Analise de recursos
   > métodos
   - GET
