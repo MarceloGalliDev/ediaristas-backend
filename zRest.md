@@ -21,7 +21,7 @@
   - 400 a 499 - erro cliente
   - 500 a 599 - erro servidor
 
-  > mais usados
+  > Mais usados
     - 200 - OK
     - 201 - criação de recurso
     - 301 - movido permanentemente
@@ -36,3 +36,12 @@
     - 500 - erro interno do servidor
     - 504 - timeout, sem resposta do servidor
 
+> Modelo de maturidade Richardson
+  - Possui 4 níveis
+    - Level 0 - nossa API nào utiliza nenhum recurso
+    - Level 1 - ja é organizado em recursos
+    - Level 2 - utilizamos corretamente os método http e status code
+    - Level 3 - já o topo da cadeia o HATEOAS
+
+> Autenticação e autorização
+  -
