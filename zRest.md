@@ -2,6 +2,9 @@
 
 # 1 - HateOs
   - necessário possuir uma URI indicando o caminho do recurso solicitado
+  - na montagem do api em json por exemplo, o modelo REST é necessario incluir uma uri (url indicando caminho), demonstrar o retorno do status CODE correto
+  - usamos o content negociation, é o acordo realizado entre API e USER, onde o user pode escolher o tipo que será recebido os dados
+
 
 > Analise de recursos
   > métodos
