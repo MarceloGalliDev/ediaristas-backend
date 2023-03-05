@@ -44,4 +44,7 @@
     - Level 3 - já o topo da cadeia o HATEOAS
 
 > Autenticação e autorização
-  -
+  - chave de api
+  - autenticação básica de http
+  - OAuth
+  - JWT Token
