@@ -1,5 +1,3 @@
-# ediaristas-backend
-
 ## 1 - Criando e ativando virtualvenv
 >python3 -m venv venv
 >source venv/bin/activate

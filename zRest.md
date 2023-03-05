@@ -1,6 +1,6 @@
-## Rest e RESTfull
+# Rest e RESTfull
 
-# 1 - HateOs
+## 1 - HateOs
   - necessário possuir uma URI indicando o caminho do recurso solicitado
   - na montagem do api em json por exemplo, o modelo REST é necessario incluir uma uri (url indicando caminho), demonstrar o retorno do status CODE correto
   - usamos o content negociation, é o acordo realizado entre API e USER, onde o user pode escolher o tipo que será recebido os dados
@@ -48,3 +48,32 @@
   - autenticação básica de http
   - OAuth
   - JWT Token
+  - dicas de segurança
+    - sempre utilizar https
+    - nunca passe dados de segunraça pela URL
+    - utilize rate limit (limite de requisições por minuto)
+    - valide os dados recebidos
+    - utilize api gateway (parte de segurança da api, vai na frente da api)
+
+## 2 - JWT
+  - é uma forma padrão de segurança para objetos JSON
+  - JWT utiliza uma chave secreta baseada em algoritimo HMAC, ou par de chaves RSA ou ECDSA
+  - Autorização: Este é o cenário mais comum para o uso do JWT. Depois que o usuário estiver autenticado, cada requisição subsequente incluirá o JWT, permitindo que o usuário acesse rotas, serviços e recursos permitidos com esse token.
+  - Troca de Informações: JSON Web Tokens são uma boa maneira de transmitir informações com segurança entre as partes. Como os JWTs podem ser assinados, por exemplo, usando pares de chaves pública e privada podemos garantir que os remetentes são quem dizem ser.
+  - JWT é composto por 3 etapas:
+    - header, onde temos o algoritmo e o type do algoritmo
+    - payload, temos as claims, que são:
+      - a entidade 
+      - e dados adicionais
+    - signature, aqui juntamos as duas partes citadas acima e assinamos
+  
+  - JWT (JSON Web Token): Representa o token propriamente dito;
+  - JWS (JSON Web Signature): Representa a assinatura do token;
+  - JWE (JSON Web Encryption): Representa a assinatura para criptografia do token;
+  - JWK (JSON Web Keys): Representa as chaves para a assinatura;
+  - JWA (JSON Web Algorithms): Representa os algoritmos para assinatura do token;
+
+  - Chave IAT, formato timestamp
+  - Chave EXP, o tempo que o token vai levar para expirar
+
+  - Utilizar o refresh token
