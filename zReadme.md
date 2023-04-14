@@ -112,3 +112,9 @@
  - Usamos o super para indicar que queremos o child do block
 
 ## 15 - Criando o template reset_password
+
+
+## 16 - Instalando pacote Django Rest Framework
+  - pip install djangorestframework
+  - adicionar no settings.py a config
+  - python manage.py startapp api
