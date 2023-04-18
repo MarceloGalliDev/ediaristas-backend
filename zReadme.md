@@ -118,3 +118,11 @@
   - pip install djangorestframework
   - adicionar no settings.py a config
   - python manage.py startapp api
+
+# 17 - Criando a tabela da API
+  - incluir na settings.py a config de authentication
+  - fazer a makemigration
+  - quando fizer a migrate, vai dar um erro, pois ja existe uma migração inicial
+  - é necessário apagar a table django_migrations na mo MySQL
+  - necessario fazer uma migrate --fake
+  - agora fazemos a migrate

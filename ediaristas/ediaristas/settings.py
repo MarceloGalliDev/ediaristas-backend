@@ -27,6 +27,8 @@ INSTALLED_APPS = [
   'adminlte3',
   'adminlte3_theme',
   'bootstrap4',
+  'localflavor',
+  'api',
   'rest_framework',
 ]
 
@@ -120,4 +122,6 @@ LOGIN_URL = 'logar_usuario'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+AUTH_USER_MODEL = 'api.Usuario'
 
