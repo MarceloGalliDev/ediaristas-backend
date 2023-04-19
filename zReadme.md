@@ -129,4 +129,14 @@
   - se acaso não funcionar, tem que deletar o DB e fazer migrate novamente
 
 # 18 - Criando a API de busca por cep
-  - vamos utilizar o serializer, que significa transformar o codigo em um objeto json
+  - vamos utilizar o serializer, que significa transformar a resposta de um objeto em json
+  - serializer é usado para definir o formato de uma resposta atraves de uma requisição
+  - criaremos uma nova pasta para receber as views
+  - criaremos uma classe
+  - criaremos a url patterns
+  - o many=True, dentro do serializer é para indicar que estamos fazendo uma ligação n to n
+  - fazemos o teste no imsonia
+
+# 19 - Criando services
+  - agora criaremos uma pasta services, para armazenar nossas requisições externas
+  
