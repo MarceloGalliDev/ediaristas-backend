@@ -31,3 +31,10 @@ class Usuario(AbstractUser):
   chave_pix = models.CharField(null=True, blank=True, max_length=255)
   foto_usuario = models.ImageField(null=False, upload_to=nome_arquivo_usuario, validators=[validate_image_file_extension, ]) #incluimos um renomeador de nome, e um validador de imagem
   foto_documento = models.ImageField(null=False, upload_to=nome_arquivo_documento, validators=[validate_image_file_extension, ]) #incluimos um renomeador de nome, e um validador de imagem
+  
+  #relacionamento N > N
+class CidadesAtendidas(models.Model):
+  codigo_ibge = models.IntegerField(null=False, blank=False)
+  cidade = models.CharField(max_length=100, null=False, blank=False)
+  estado = models.CharField(max_length=2, null=False, blank=False)
+  usuario = models.ManyToManyField(Usuario, related_name='cidades_atendidas')#tabela auxiliar n to n

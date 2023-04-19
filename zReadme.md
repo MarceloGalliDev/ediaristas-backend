@@ -126,3 +126,7 @@
   - é necessário apagar a table django_migrations na mo MySQL
   - necessario fazer uma migrate --fake
   - agora fazemos a migrate
+  - se acaso não funcionar, tem que deletar o DB e fazer migrate novamente
+
+# 18 - Criando a API de busca por cep
+  - vamos utilizar o serializer, que significa transformar o codigo em um objeto json
