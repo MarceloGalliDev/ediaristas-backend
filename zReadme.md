@@ -141,3 +141,13 @@
   - agora criaremos uma pasta services, para armazenar nossas requisições externas
 
 # 20 - Buscar CEP pelo IBGE
+  - criamos a pasta services
+  - criamos uma classe para paginar a quantidade de diaristas disponibilizado na consulta
+  - incluimos na requisição e serializamos
+
+# 21 - Liberando API via CORS
+  - https://pypi.org/project/django-cors-headers/
+  - pip install django-cors-headers
+  - controle de disponibilização de API, para mobile e web
+  - bloqueia requisições anonimas, e authentication com segurança
+  - fazer as config conforme a documentação
