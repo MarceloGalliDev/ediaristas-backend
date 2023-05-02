@@ -12,6 +12,11 @@ def listar_diaristas_cidade(cep):
   except CidadesAtendidas.DoesNotExist:
     return []
   
+#verificando a existencia de uma cidade correspondente ao CEP buscado
+def verificar_disponibilidade_cidade(cep):
+  codigo_ibge = buscar_cidade_cep(cep)['ibge']
+  return CidadesAtendidas.objects.filter(codigo_ibge=codigo_ibge).exists()
+  
 #buscando código IBGE pelo CEP, na api do viacep
 def buscar_cidade_cep(cep):
   requisicao = requests.get(f"http://viacep.com.br/ws/{cep}/json/")

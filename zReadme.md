@@ -1,3 +1,9 @@
+# - Composição da estrutura
+  - services, para logicas de negocios
+  - serializers, para enviar somente os dados necessarios
+  - views, para tratar das requisições
+
+
 ## 1 - Criando e ativando virtualvenv
 >python3 -m venv venv
 >source venv/bin/activate
@@ -151,3 +157,13 @@
   - controle de disponibilização de API, para mobile e web
   - bloqueia requisições anonimas, e authentication com segurança
   - fazer as config conforme a documentação
+
+# 22 - Criando novo end-point
+  - buscando cep incluindo path para busca(end point)
+
+# 23 - Serializando o end-point
+  - serializamos o end-point, para reorganizando o data
+  - utilizamos um base serializer
+
+# 24 - Validando os dados de cadastro e pesquisa
+  - vamos utilizar o buscar_cidade_cep(cep), reaproveitando a função
