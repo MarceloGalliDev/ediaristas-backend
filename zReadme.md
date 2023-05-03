@@ -167,3 +167,7 @@
 
 # 24 - Validando os dados de cadastro e pesquisa
   - vamos utilizar o buscar_cidade_cep(cep), reaproveitando a função
+
+# 25 - Listagem de serviço
+  - criamos os arquivos de servico_view puxando para API os dados de servico vindo da administração
+  - e serializamos os dados
