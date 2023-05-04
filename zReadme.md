@@ -171,3 +171,10 @@
 # 25 - Listagem de serviço
   - criamos os arquivos de servico_view puxando para API os dados de servico vindo da administração
   - e serializamos os dados
+
+# 26 - Criando services na administração
+  - estamos criando a pasta para logica de negocio dentro da administração
+
+# 27 - HATEOAS
+  - visa facilitar os end-points da nossa aplicação
+  - facilitar a navegação entre os links da nossa navegação
