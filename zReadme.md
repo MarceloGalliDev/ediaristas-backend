@@ -178,3 +178,5 @@
 # 27 - HATEOAS
   - visa facilitar os end-points da nossa aplicação
   - facilitar a navegação entre os links da nossa navegação
+
+# 28 - 
