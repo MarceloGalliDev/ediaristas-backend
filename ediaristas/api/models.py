@@ -21,6 +21,7 @@ class Usuario(AbstractUser):
     (1, "Cliente"),
     (2, "Diaristas")
   )
+  username = None
   nome_completo = models.CharField(max_length=255, null=True, blank=False)
   cpf = BRCPFField(null=True, unique=True, blank=False)
   nascimento = models.DateField(null=True, blank=True)
