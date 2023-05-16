@@ -4,6 +4,7 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.core.validators import validate_image_file_extension
 from localflavor.br.models import BRCPFField
+from .manager import diarista_manager
 
 #renomeando os arquivos de fotos
 def nome_arquivo_usuario(instance, filename):
@@ -35,6 +36,8 @@ class Usuario(AbstractUser):
   
   USERNAME_FIELD = 'email'
   REQUIRED_FIELDS = ('nome_completo', 'cpf', 'telefone', 'tipo_usuario', 'reputacao', 'chave_pix', 'foto_documento', 'foto_usuario')
+  
+  diarista_objects = diarista_manager.DiaristaManager()
   
   #relacionamento N > N
 class CidadesAtendidas(models.Model):

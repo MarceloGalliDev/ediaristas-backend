@@ -179,4 +179,8 @@
   - visa facilitar os end-points da nossa aplicação
   - facilitar a navegação entre os links da nossa navegação
 
-# 28 - 
+# 28 - Serializamos o cadastro
+  - iniciamos o end-point de cadastro
+  - realizamos as validações
+  - criamos o managers 
+    - obrigatório ter get_queryset()
