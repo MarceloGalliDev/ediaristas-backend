@@ -10,6 +10,5 @@ class Usuario(APIView):
     if serializer_usuario.is_valid():
       usuario_criado = serializer_usuario.save()
       serializer_usuario = usuario_serializer.UsuarioSerializer(usuario_criado)
-      return Response(usuario_criado.data, status=status_http.HTTP_200_OK)
+      return Response(serializer_usuario.data)
     return Response(serializer_usuario.errors)
-#aqui capturamos os dados vindo do front-end
