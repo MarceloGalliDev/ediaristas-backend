@@ -1,3 +1,5 @@
+**kwargs = argumentos
+
 # - Composição da estrutura
   - services, para logicas de negocios
   - serializers, para enviar somente os dados necessarios
@@ -202,3 +204,8 @@
   - necessario privar a rota, para somente quando estiver logado ter o acesso
 
 # 31 - Criando conta no mailgun
+
+
+# 32 - Criando signals.py
+  - métodos que vão realizar alguma coisa
+  - o django possui vários sinais que poder nos ajudar a realizar alguma solução, isso quando atualizado nosso banco
