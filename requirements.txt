@@ -12,10 +12,12 @@ django-bootstrap4==22.3
 django-cors-headers==3.14.0
 django-localflavor==3.1
 djangorestframework==3.14.0
+djangorestframework-simplejwt==5.2.2
 idna==3.4
 mysqlclient==2.1.1
 Pillow==9.5.0
 pycparser==2.21
+PyJWT==2.7.0
 PyMySQL==1.0.2
 python-decouple==3.7
 python-dotenv==0.21.1

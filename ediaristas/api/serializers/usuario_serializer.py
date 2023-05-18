@@ -2,6 +2,7 @@ from rest_framework import serializers
 from django.contrib.auth.hashers import make_password
 from ..models import Usuario
 from datetime import date
+from rest_framework_simplejwt.tokens import RefreshToken
 
 class UsuarioSerializer(serializers.ModelSerializer):
   chave_pix = serializers.CharField(required=False)
@@ -10,6 +11,7 @@ class UsuarioSerializer(serializers.ModelSerializer):
   foto_usuario = serializers.ImageField(max_length=None, required=False, use_url=True, allow_null=True)
   password = serializers.CharField(write_only=True)
   foto_documento = serializers.ImageField(write_only=True, required=True)
+  token = serializers.SerializerMethodField(required=False)
   
   class Meta:
     model = Usuario
@@ -24,8 +26,17 @@ class UsuarioSerializer(serializers.ModelSerializer):
       'password_confirmation',
       'email',
       'chave_pix',
-      'foto_usuario'
+      'foto_usuario',
+      'token',
     )
+  
+  def get_token(self, user):
+    tokens = RefreshToken.for_user(user)
+    data = {
+      "refresh": str(tokens),
+      "access": str(tokens.access_token)
+    }
+    return data
     
   def validate_password(self, password):
     password_confirmation = self.initial_data['password_confirmation']
@@ -49,7 +60,7 @@ class UsuarioSerializer(serializers.ModelSerializer):
     validated_data.pop('password_confirmation', None)
     reputacao_geral = 2
     if validated_data['tipo_usuario'] == 2:
-      reputacao_geral = Usuario.diarista_objects.reputacao_geral()['reputacao_avg']
+      reputacao_geral = Usuario.diarista_objects.reputacao_geral()['reputacao__avg']
       if reputacao_geral is None:
         reputacao_geral = 5
     usuario = Usuario.objects.create(reputacao = reputacao_geral, **validated_data)

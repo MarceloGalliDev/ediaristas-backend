@@ -184,3 +184,14 @@
   - realizamos as validações
   - criamos o managers 
     - obrigatório ter get_queryset()
+
+# 29 - Authentication
+  - simpleJWT
+  - pip install djangorestframework-simplejwt
+  - segue a documentação
+  - adicionar no settings.py
+  - verificar o method padrão no arquivo de models
+    - refresh token - token para atualizar o access token, 
+      - necessário incluir o path
+    - access token - token de acesso, possui tempo de expiração
+      - necessário incluir o path
