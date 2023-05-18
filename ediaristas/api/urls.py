@@ -5,7 +5,8 @@ from .views import (
   disponibilidade_atendimento_cidade,
   servico_view,
   inicio_view,
-  usuario_view
+  usuario_view,
+  me_view
 )
 
 urlpatterns = [
@@ -15,5 +16,6 @@ urlpatterns = [
   path('servicos', servico_view.Servico.as_view(), name='servico-list'),
   path('', inicio_view.Inicio.as_view(), name='inicio'),
   path('usuarios', usuario_view.Usuario.as_view(), name='usuario-list'),
+  path('me', me_view.Me.as_view(), name='me-list'),
 ]
 #Quando não precisarmos de um paramerto na url usaremos -list caso necessite de parametros usaremos - datail

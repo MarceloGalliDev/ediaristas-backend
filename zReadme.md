@@ -195,3 +195,10 @@
       - necessário incluir o path
     - access token - token de acesso, possui tempo de expiração
       - necessário incluir o path
+
+# 30 - Criação do me_view()
+  - dados dos usuarios logados
+  - request.user me retorna os dados do usuario logado
+  - necessario privar a rota, para somente quando estiver logado ter o acesso
+
+# 31 - Criando conta no mailgun
