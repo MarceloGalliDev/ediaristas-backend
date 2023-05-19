@@ -10,8 +10,8 @@ def usuario_cadastrado(sender, instance, created, **kwargs):
     email_destino = [instance.email, ]#instanciamos o email do usuario, vindo do models
     email_remetente = 'marcelolemesgalli@hotmail.com'
     mensagem_html = render_to_string('email_cadastro.html', {'usuario': instance})
-    send_mail(assunto, corpo_email, email_remetente, email_destino, mensagem_html)
+    send_mail(assunto, corpo_email, email_remetente, email_destino, html_message=mensagem_html)
   
-post_save.connect(usuario_cadastrado, sender=Usuario)
+post_save.connect(usuario_cadastrado, sender=Usuario)#apos salvar alguma coisa na tabela Usuario, ele aciona o metodo usuario_cadastrado
 
 #podemos usar vários modelos de signals, podendo ser apos um delete, ou apos uma inclusão de cadastro
