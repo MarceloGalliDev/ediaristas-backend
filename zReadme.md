@@ -213,3 +213,6 @@
 
 # 33 - Criando arquivos de enviroment
   - pip install django-environ
+
+# 34 - Cadastro de diárias
+  - 

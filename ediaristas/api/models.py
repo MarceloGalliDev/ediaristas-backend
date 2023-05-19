@@ -43,6 +43,29 @@ class Usuario(AbstractUser):
   
   #method subscrito
   diarista_objects = diarista_manager.DiaristaManager()
+
+class Diaria(models.Model):
+  data_atendimento = models.DateField(null=False, blank=False)
+  tempo_atendimento = models.IntegerField(null=False, blank=False)
+  status = models.IntegerField()
+  preco = models.FloatField(null=False, blank=False)
+  valor_comissao = models.FloatField(null=False, blank=False)
+  logradouro = models.CharField(max_length=60, null=False, blank=False)
+  numero = models.CharField(max_length=10, null=False, blank=False)
+  bairro = models.CharField(max_length=30, null=False, blank=False)
+  complemento = models.CharField(max_length=100, null=False, blank=False)
+  cep = models.CharField(max_length=10, null=False, blank=False)
+  cidade = models.CharField(max_length=30, null=False, blank=False)
+  estado = models.CharField(max_length=2, null=False, blank=False)
+  codigo_ibge = models.IntegerField(null=True, blank=True)
+  quantidade_quartos = models.IntegerField(null=False, blank=False)
+  quantidade_salas = models.IntegerField(null=False, blank=False)
+  quantidade_cozinhas = models.IntegerField(null=False, blank=False)
+  quantidade_banheiros = models.IntegerField(null=False, blank=False)
+  quantidade_quintais = models.IntegerField(null=False, blank=False)
+  quantidade_outros = models.IntegerField(null=False, blank=False)
+  observacoes = models.TextField(null=False, blank=True)
+  motivo_cancelamento = models.TextField(null=True, blank=True)
   
   #relacionamento N > N
 class CidadesAtendidas(models.Model):
