@@ -117,21 +117,21 @@ WSGI_APPLICATION = 'ediaristas.wsgi.application'
 DATABASES = {
   'default': {
     'ENGINE': os.getenv('DATABASE_URL'),
-    'NAME': os.getenv('NAME'),
-    'HOST': os.getenv('HOST'),
-    'PORT': os.getenv('PORT'),
-    'USER': os.getenv('USERNAME'),
-    'PASSWORD': os.getenv('PASSWORD')
+    'NAME': os.getenv('DATABASE_NAME'),
+    'HOST': os.getenv('DATABASE_HOST'),
+    'PORT': os.getenv('DATABASE_PORT'),
+    'USER': os.getenv('DATABASE_USERNAME'),
+    'PASSWORD': os.getenv('DATABASE_PASSWORD')
   }
 }
 
 # Email
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.mailgun.org'
-EMAIL_PORT = 587
-EMAIL_HOST_USER = 'postmaster@sandbox3bc50076cbcc46888b8862d576420905.mailgun.org'
-EMAIL_HOST_PASSWORD = '4d8aee821a0dd4e790bb565770edbbc3-db4df449-9eae7796'
-EMAIL_USE_TLS = True
+EMAIL_BACKEND = os.getenv('EMAIL_BACKEND')
+EMAIL_HOST = os.getenv('EMAIL_HOST')
+EMAIL_PORT = os.getenv('EMAIL_PORT')
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+EMAIL_USE_TLS = os.getenv('EMAIL_USE_TLS')
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators

@@ -204,8 +204,12 @@
   - necessario privar a rota, para somente quando estiver logado ter o acesso
 
 # 31 - Criando conta no mailgun
-
+  - incluir os dados no settings.py
+  - verificar a api e password na página do mailgun
 
 # 32 - Criando signals.py
   - métodos que vão realizar alguma coisa
   - o django possui vários sinais que poder nos ajudar a realizar alguma solução, isso quando atualizado nosso banco
+
+# 33 - Criando arquivos de enviroment
+  - pip install django-environ
