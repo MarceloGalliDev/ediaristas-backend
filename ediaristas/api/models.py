@@ -6,6 +6,7 @@ from django.core.validators import validate_image_file_extension
 from localflavor.br.models import BRCPFField
 from .manager import diarista_manager
 from django.contrib.auth.models import UserManager
+from administracao.models import Servico
 
 #renomeando os arquivos de fotos
 def nome_arquivo_usuario(instance, filename):
@@ -66,8 +67,11 @@ class Diaria(models.Model):
   quantidade_outros = models.IntegerField(null=False, blank=False)
   observacoes = models.TextField(null=False, blank=True)
   motivo_cancelamento = models.TextField(null=True, blank=True)
+  cliente = models.ForeignKey(Usuario, null=False, blank=False, on_delete=models.DO_NOTHING, related_name='cliente')#a diária é obrigatório ter um cliente, on_delete, é o que vai acontecer quando deletar.
+  diarista = models.ForeignKey(Usuario, null=True, blank=True, on_delete=models.DO_NOTHING, related_name='diarista')
+  servico = models.ForeignKey()
   
-  #relacionamento N > N
+
 class CidadesAtendidas(models.Model):
   codigo_ibge = models.IntegerField(null=False, blank=False)
   cidade = models.CharField(max_length=100, null=False, blank=False)
