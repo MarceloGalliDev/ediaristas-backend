@@ -4,6 +4,7 @@ from django.urls import reverse
 from rest_framework.response import Response
 from rest_framework import status as status_http
 
+#aqui usamos o hateoas para lidar com as requisições
 class Inicio(APIView):
   def get(self, request, format=None):
     links = Hateoas()

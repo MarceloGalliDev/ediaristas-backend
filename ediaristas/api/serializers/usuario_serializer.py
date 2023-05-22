@@ -3,6 +3,9 @@ from django.contrib.auth.hashers import make_password
 from ..models import Usuario
 from datetime import date
 from rest_framework_simplejwt.tokens import RefreshToken
+from ..services import usuario_service
+from ..hateoas import Hateoas
+from django.urls import reverse
 
 class UsuarioSerializer(serializers.ModelSerializer):
   chave_pix = serializers.CharField(required=False)
@@ -12,6 +15,7 @@ class UsuarioSerializer(serializers.ModelSerializer):
   password = serializers.CharField(write_only=True)
   foto_documento = serializers.ImageField(write_only=True, required=True)
   token = serializers.SerializerMethodField(required=False)
+  links = serializers.SerializerMethodField(required=False)
   
   class Meta:
     model = Usuario
@@ -28,8 +32,10 @@ class UsuarioSerializer(serializers.ModelSerializer):
       'chave_pix',
       'foto_usuario',
       'token',
+      'links',
     )
   
+  #é retornado para o serializer devido ao SerializerMethodField
   def get_token(self, user):
     tokens = RefreshToken.for_user(user)
     data = {
@@ -37,6 +43,13 @@ class UsuarioSerializer(serializers.ModelSerializer):
       "access": str(tokens.access_token)
     }
     return data
+    
+  def get_links(self, user):
+    usuario = usuario_service.listar_usuario_email(user.email)
+    links = Hateoas()
+    if usuario.tipo_usuario == 1:
+      links.add_post('cadastrar_diaria', reverse('diarias-list'))
+    return links.to_array()
     
   def validate_password(self, password):
     password_confirmation = self.initial_data['password_confirmation']
