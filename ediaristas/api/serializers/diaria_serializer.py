@@ -29,7 +29,7 @@ class DiariaSerializer(serializers.ModelSerializer):
     return diaria
   
   def validate_preco(self, preco):
-    servico = servico_service.listar_servico_id(self.initial_data['servico'].id)
+    servico = servico_service.listar_servico_id(self.initial_data['servico'])
     if servico is None:
       raise serializers.ValidationError('Serviço não existe!')
     valor_total = 0
@@ -47,7 +47,7 @@ class DiariaSerializer(serializers.ModelSerializer):
     raise serializers.ValidationError('Valores não correspondem!')
   
   def validate_tempo_atendimento(self, tempo_atendimento):
-    servico = servico_service.listar_servico_id(self.initial_data['servico'].id)
+    servico = servico_service.listar_servico_id(self.initial_data['servico'])
     if servico is None:
       raise serializers.ValidationError('Serviço não existe!')
     horas_total = 0
@@ -66,4 +66,5 @@ class DiariaSerializer(serializers.ModelSerializer):
       raise serializers.ValidationError('Horário de início não pode ser menor que 6:00am')
     if (data_atendimento.hour + self.initial_data['tempo_atendimento']) > 22:
       raise serializers.ValidationError('O horário de atendimento não pode passar das 22:00pm')
+    return data_atendimento
     
