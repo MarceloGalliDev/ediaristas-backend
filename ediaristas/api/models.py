@@ -46,15 +46,25 @@ class Usuario(AbstractUser):
   diarista_objects = diarista_manager.DiaristaManager()
 
 class Diaria(models.Model):
-  data_atendimento = models.DateField(null=False, blank=False)
+  STATUS_DIARIA_CHOICES = (
+    (1, "SEM_PAGAMENTO"),
+    (2, "PAGO"),
+    (3, "CONFIRMADO"),
+    (4, "CONCLUIDO"),
+    (5, "CANCELADO"),
+    (6, "AVALIADO"),
+    (7, "TRANSFERIDO")
+  )
+  
+  data_atendimento = models.DateTimeField(null=False, blank=False)
   tempo_atendimento = models.IntegerField(null=False, blank=False)
-  status = models.IntegerField()
-  preco = models.FloatField(null=False, blank=False)
-  valor_comissao = models.FloatField(null=False, blank=False)
+  status = models.IntegerField(null=False, blank=False, choices=STATUS_DIARIA_CHOICES, default=1)
+  preco = models.DecimalField(null=False, blank=False, decimal_places=2, max_digits=5)
+  valor_comissao = models.DecimalField(null=False, blank=False, decimal_places=2, max_digits=5)
   logradouro = models.CharField(max_length=60, null=False, blank=False)
   numero = models.CharField(max_length=10, null=False, blank=False)
   bairro = models.CharField(max_length=30, null=False, blank=False)
-  complemento = models.CharField(max_length=100, null=False, blank=False)
+  complemento = models.CharField(max_length=100, null=False, blank=True)
   cep = models.CharField(max_length=10, null=False, blank=False)
   cidade = models.CharField(max_length=30, null=False, blank=False)
   estado = models.CharField(max_length=2, null=False, blank=False)
@@ -69,7 +79,11 @@ class Diaria(models.Model):
   motivo_cancelamento = models.TextField(null=True, blank=True)
   cliente = models.ForeignKey(Usuario, null=False, blank=False, on_delete=models.DO_NOTHING, related_name='cliente')#a diária é obrigatório ter um cliente, on_delete, é o que vai acontecer quando deletar.
   diarista = models.ForeignKey(Usuario, null=True, blank=True, on_delete=models.DO_NOTHING, related_name='diarista')
-  servico = models.ForeignKey()
+  servico = models.ForeignKey(Servico, null=False, blank=False, on_delete=models.DO_NOTHING)
+  #integração N para N na tabela abaixo
+  candidatas = models.ManyToManyField(Usuario, blank=True, related_name='candidatos')
+  created_at = models.DateTimeField(auto_now_add=True, null=True)
+  updated_at = models.DateTimeField(auto_now=True, null=True)
   
 
 class CidadesAtendidas(models.Model):

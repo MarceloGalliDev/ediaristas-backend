@@ -5,6 +5,13 @@
   - serializers, para enviar somente os dados necessarios
   - views, para tratar das requisições
 
+# - Fluxo de criação
+  - models = onde criamos as tabelas no banco de dados
+    - makemigrations e migrate
+  - serializers = tratamento dos dados e onde colocamos a disposição ao end-point os campos que desejamos
+  - views = onde recebemos os dados do front-end e as requisições
+  - url = onde a view seja executada
+
 
 ## 1 - Criando e ativando virtualvenv
 >python3 -m venv venv
@@ -215,4 +222,12 @@
   - pip install django-environ
 
 # 34 - Cadastro de diárias
-  - 
+  - on_delete=DO_NOTHING - esse campo significa que ao deletar não iremos fazer nada
+  - related_name='cliente' - esse campo serve para nos termos acesso ao cliente da diária solicitada.
+  - quando temos umas relação N para N, usamos o ManyToManyField()
+  - auto_now_add=True - esse campo pega a data e hora do servidor quando for chamada o método
+  - adicionar o makemigration e migrate
+  - vamos capturar o access token e o servico
+
+# 35 - Listando comissão de serviçoes
+  - temos que receber esse dado apartir do service da pasta administração
