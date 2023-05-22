@@ -2,6 +2,7 @@ from rest_framework import serializers
 from ..models import Diaria, Usuario
 from django.db import models
 from administracao.services import servico_service
+from ..services.cidades_atendimento_service import verificar_disponibilidade_cidade
 
 class UsuarioDiariaSerializer(serializers.ModelSerializer):
   class Meta:
@@ -27,6 +28,13 @@ class DiariaSerializer(serializers.ModelSerializer):
     #aqui pegamos o usuario logado pelo context da requisição
     diaria = Diaria.objects.create(valor_comissao=valor_comissao, cliente_id=self.context['request'].user.id, **validated_data)
     return diaria
+  
+  #validação de localização, se há diária para aquela área (CEP)
+  #vamos subscrever o metodo validate, recebendo o self e a diaria=attrs, attrs são os atributos da requisição, valida os attrs em geral, é chamado sempre que for chamado a diária
+  def validate(self, attrs):
+    if not verificar_disponibilidade_cidade(attrs['cep']):
+      raise serializers.ValidationError('Não há diaristas para o CEP informado!')
+    return attrs
   
   def validate_preco(self, preco):
     servico = servico_service.listar_servico_id(self.initial_data['servico'])
