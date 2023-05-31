@@ -231,3 +231,11 @@
 
 # 35 - Listando comissão de serviçoes
   - temos que receber esse dado apartir do service da pasta administração
+
+# 36 - Verificando se a diária corresponde ao dono do id
+  - a diária só pode ser acessada e paga pelo mesmo id_usuario
+  - verificamos se está logado
+  - criamos as permissões
+    - dois métodos: 
+      1. hasPermission = o que que tem que acontecer para o usuário continuar naquela requisição
+      2. hasObjectPermission = o que o usuario precisa para manipular aquele determinado objeto
