@@ -35,9 +35,15 @@ flush privileges;
   - usamos sempre validate_(seguido do nome do campo)
 
 ## Desenvolvimento
-1. Criamos o models.py
+1. Criamos o models
   - Aqui criamos as tabelas, com seus modelos e campos destinados
   - Depois de criado o models
     - python manage.py makemigrations
     - python manage.py migrate
+
+2. Criando o serializer
+  - Aqui tratamos os dados da requisição
+
+3. Criando o views
+  - Tratamos a requisição
 

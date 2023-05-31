@@ -8,6 +8,7 @@ from .views import (
   usuario_view,
   me_view,
   diaria_view,
+  pagamento_diaria_view,
 )
 
 urlpatterns = [
@@ -19,5 +20,6 @@ urlpatterns = [
   path('usuarios', usuario_view.Usuario.as_view(), name='usuario-list'),
   path('me', me_view.Me.as_view(), name='me-list'),
   path('diarias', diaria_view.Diaria.as_view(), name='diarias-list'),
+  path('diarias/<int:diaria_id>/pagamentos', pagamento_diaria_view.PagamentoDiaria.as_view(), name='pagamento-list') #o paramêtro dentro da rota, sempre tem que ser o mesmo nome que consta no método da requisição
 ]
 #Quando não precisarmos de um paramerto na url usaremos -list caso necessite de parametros usaremos - datail
