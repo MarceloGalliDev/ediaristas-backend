@@ -27,3 +27,4 @@ class Hateoas:
   
   def to_array(self):
     return self.links
+  
