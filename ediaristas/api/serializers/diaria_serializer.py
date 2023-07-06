@@ -5,6 +5,7 @@ from django.urls import reverse
 from administracao.services import servico_service
 from ..services.cidades_atendimento_service import verificar_disponibilidade_cidade, buscar_cidade_ibge
 from ..hateoas import Hateoas
+from django.utils import timezone
 
 class UsuarioDiariaSerializer(serializers.ModelSerializer):
   class Meta:
@@ -37,6 +38,10 @@ class DiariaSerializer(serializers.ModelSerializer):
   def validate(self, attrs):
     if not verificar_disponibilidade_cidade(attrs['cep']):
       raise serializers.ValidationError('Não há diaristas para o CEP informado!')
+    qtd_comodos = attrs['quantidade_quartos'] + attrs['quantidade_salas'] + attrs['quantidade_cozinhas'] + \
+      attrs['quantidade_banheiros'] + attrs['quantidade_quintais'] + attrs['quantidade_outros']
+    if qtd_comodos == 0:
+      raise serializers.ValidationError('A diária deve ter pelo menos 1 cômodo selecionado!')
     return attrs
   
   #aqui validamos o código do IBGE para verificar se existe
@@ -82,13 +87,17 @@ class DiariaSerializer(serializers.ModelSerializer):
       raise serializers.ValidationError('Horário de início não pode ser menor que 6:00am')
     if (data_atendimento.hour + self.initial_data['tempo_atendimento']) > 22:
       raise serializers.ValidationError('O horário de atendimento não pode passar das 22:00pm')
+    if data_atendimento <= (timezone.now() + timezone.timedelta(hours=48)):#aqui estamos pegando a hora atual e adicionando 48 horas
+      raise serializers.ValidationError('A data de atendimento não pode ser menor que 48h antes da data atual!') 
     return data_atendimento
   
   def get_links(self, obj):
     usuario = self.context['request'].user
     links = Hateoas()
-    
     if obj.status == 1:
       if usuario.tipo_usuario == 1:
         links.add_post('pagar_diaria', reverse('pagamento-diaria-list', kwargs={'diaria_id': obj.id}))
+    else:
+      #self é referente ao proprio objeto e ao propria diaria
+      links.add_get('self', reverse('diaria-detail', kwargs={'diaria_id': obj.id}))
     return links.to_array()
