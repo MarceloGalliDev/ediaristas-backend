@@ -2,7 +2,7 @@
 
 from rest_framework.views import APIView
 from ..serializers import diaria_serializer
-from ..services.diaria_service import listar_diarias_usuario
+from ..services.diaria_service import listar_diarias_usuario, listar_diaria_id
 from rest_framework.response import Response
 from rest_framework import status as status_http
 from rest_framework import permissions
@@ -27,4 +27,10 @@ class Diaria(APIView):
     diarias = listar_diarias_usuario(request.user.id)
     #many=True é para indicar que vamos indicar mais de um objeto
     serializer_diaria = diaria_serializer.DiariaSerializer(diarias, many=True, context={'request': request})
+    return Response(serializer_diaria.data, status=status_http.HTTP_200_OK)
+  
+class DiariaId(APIView):
+  def get(self, request, diaria_id, format=None):
+    diaria = listar_diaria_id(diaria_id)
+    serializer_diaria = diaria_serializer.DiariaSerializer(diaria, context={'request': request})
     return Response(serializer_diaria.data, status=status_http.HTTP_200_OK)
