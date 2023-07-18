@@ -50,6 +50,9 @@ class UsuarioSerializer(serializers.ModelSerializer):
     links.add_get('lista_diarias', reverse=('diaria_lista'))
     if usuario.tipo_usuario == 1:
       links.add_post('cadastrar_diaria', reverse('diarias-list'))
+    else:
+      links.add_put('cadastrar_endereco', reverse('endereco-diarista-detail'))
+      links.add_put('relacionar_cidades', reverse('cidades-atendimento-diarista-detail'))
     return links.to_array()
     
   def validate_password(self, password):
