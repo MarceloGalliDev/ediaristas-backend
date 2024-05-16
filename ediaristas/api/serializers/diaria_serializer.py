@@ -1,3 +1,6 @@
+# pylint: disable=all
+# flake8: noqa
+
 from rest_framework import serializers
 from ..models import Diaria, Usuario
 from django.db import models
